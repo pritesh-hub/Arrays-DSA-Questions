@@ -1,0 +1,31 @@
+#include<iostream>
+#include<climits>// for MIN & MAX
+using namespace std;
+
+int FindSecondLargest(int arr[],int size)
+{
+    int largest = INT_MIN;// intitally -Infinity value
+    int secondlargest = INT_MAX;// intitally +Infinity value
+    
+    for(int i=0;i<size;i++)
+    {
+        if(arr[i]>largest)
+        {
+            secondlargest=largest;
+            largest=arr[i];
+        }
+        else if(arr[i]>secondlargest && arr[i]!=largest)
+        {
+            secondlargest=arr[i];
+        }
+    }
+    return secondlargest;
+}
+int main ()
+{
+    int arr [] = {1,2,54,65,80,56,1};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    int sec_large = FindSecondLargest(arr,size);
+    cout<<sec_large;
+    return 0;
+}
