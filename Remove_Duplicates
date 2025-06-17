@@ -1,0 +1,25 @@
+#include <iostream>               // Includes input-output stream
+#include <unordered_map>         // Includes hash map (unordered_map)
+using namespace std;
+
+void removeDuplicates(int arr[], int size) {
+    unordered_map<int, bool> seen;  // Step 1: Create a hash map to track elements we've already seen
+
+    cout << "Array after removing duplicates: ";
+    for (int i = 0; i < size; i++) {   // Step 2: Traverse the entire array
+        if (!seen[arr[i]]) {          // Step 3: If arr[i] is not yet seen (i.e., first occurrence)
+            cout << arr[i] << " ";    // Step 4: Print the unique element
+            seen[arr[i]] = true;      // Step 5: Mark the element as seen in the map
+        }
+        // If already seen, we do nothing (i.e., skip duplicate)
+    }
+}
+
+int main() {
+    int arr[] = {4, 5, 2, 4, 3, 5, 1, 2};  // Input array (unsorted, with duplicates)
+    int size = sizeof(arr) / sizeof(arr[0]);  // Calculate size of the array
+
+    removeDuplicates(arr, size);  // Call function to remove duplicates and print
+
+    return 0;   // End of main function
+}
