@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std ;
+void FindDuplicates(int arr[],int size)
+{
+    for(int i=0;i<size;i++)
+    {
+        for(int j=i+1;j<size;j++)
+        {
+            if(arr[i]==arr[j])
+            {
+                cout<<arr[i]<<" "<<endl;
+            }
+        }
+    }
+}
+int main()
+{
+    int arr [] = {1,2,3,4,4,5,6,5};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    FindDuplicates(arr,size);
+    return 0;
+}
+
+Problem with this method:
+It may print the same duplicate multiple times (e.g., 1 again if it appears more than twice)
